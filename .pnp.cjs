@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@wert-io/widget-sc-signer", "npm:1.0.0"],\
+            ["dotenv", "npm:16.0.1"],\
             ["express", "npm:4.18.1"]\
           ],\
           "linkType": "SOFT"\
@@ -232,6 +233,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/destroy-npm-1.2.0-6a511802e2-0acb300b74.zip/node_modules/destroy/",\
           "packageDependencies": [\
             ["destroy", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dotenv", [\
+        ["npm:16.0.1", {\
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.1-d99e72bb95-f459ffce07.zip/node_modules/dotenv/",\
+          "packageDependencies": [\
+            ["dotenv", "npm:16.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -781,6 +791,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["wert-api", "workspace:."],\
             ["@wert-io/widget-sc-signer", "npm:1.0.0"],\
+            ["dotenv", "npm:16.0.1"],\
             ["express", "npm:4.18.1"]\
           ],\
           "linkType": "SOFT"\
