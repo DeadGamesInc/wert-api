@@ -622,6 +622,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
 "vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
@@ -629,12 +638,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wert-api@workspace:.":
+"wert-partner-api@workspace:.":
   version: 0.0.0-use.local
-  resolution: "wert-api@workspace:."
+  resolution: "wert-partner-api@workspace:."
   dependencies:
     "@wert-io/widget-sc-signer": ^1.0.0
     dotenv: ^16.0.1
     express: ^4.18.1
+    uuid: ^8.3.2
   languageName: unknown
   linkType: soft

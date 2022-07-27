@@ -17,14 +17,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "wert-api",\
+        "name": "wert-partner-api",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["wert-api", ["workspace:."]]\
+      ["wert-partner-api", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -35,7 +35,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@wert-io/widget-sc-signer", "npm:1.0.0"],\
             ["dotenv", "npm:16.0.1"],\
-            ["express", "npm:4.18.1"]\
+            ["express", "npm:4.18.1"],\
+            ["uuid", "npm:8.3.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -776,6 +777,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["uuid", [\
+        ["npm:8.3.2", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",\
+          "packageDependencies": [\
+            ["uuid", "npm:8.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["vary", [\
         ["npm:1.1.2", {\
           "packageLocation": "./.yarn/cache/vary-npm-1.1.2-b49f70ae63-ae0123222c.zip/node_modules/vary/",\
@@ -785,14 +795,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["wert-api", [\
+      ["wert-partner-api", [\
         ["workspace:.", {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["wert-api", "workspace:."],\
+            ["wert-partner-api", "workspace:."],\
             ["@wert-io/widget-sc-signer", "npm:1.0.0"],\
             ["dotenv", "npm:16.0.1"],\
-            ["express", "npm:4.18.1"]\
+            ["express", "npm:4.18.1"],\
+            ["uuid", "npm:8.3.2"]\
           ],\
           "linkType": "SOFT"\
         }]\

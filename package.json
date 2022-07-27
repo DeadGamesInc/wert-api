@@ -1,13 +1,15 @@
 {
-  "name": "wert-api",
+  "name": "wert-partner-api",
   "packageManager": "yarn@3.2.2",
   "type": "module",
   "dependencies": {
     "@wert-io/widget-sc-signer": "^1.0.0",
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "node index.js"
+    "devstart": "node index.js",
+    "start": "NODE_ENV=production node index.js"
   }
 }

@@ -1,30 +1,41 @@
 import express from 'express'
 import dotenv from 'dotenv';
-
+import { v4 as uuidv4 } from 'uuid';
 import {signSmartContractData} from '@wert-io/widget-sc-signer';
+import webhooksRouter from './routes/webhooks.js'
+
+dotenv.config()
 
 const app = express()
-dotenv.config()
 app.use(express.json())
+app.use('/webhooks', webhooksRouter)
 
 app.post('/requestSignature', (req, res) => {
-    const signedData = signSmartContractData({
-        address: '0x96D5990185022212d367A0e09263B12Dbb4EE06A',
-        commodity: 'ETH',
-        commodity_amount: '0.3',
-        pk_id: 'key1',
-        sc_address: '0xC545CEae428785a5AE77bfF262600deC7F7d76d2',
-        sc_id: uuidv4(), // must be unique for any request
-        sc_input_data: '0x9dae76ea000000000000000000000000000000000000000000000000000000000000003700000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001',
-    }, process.env.PARTNER_PRIVATE_KEY);
+  // TODO whitelist contract addresses
+  // TODO middleware that returns error if api env vars are not set
 
+  const { commodity, commodity_amount, address, sc_address, sc_input_data, pk_id } = req.body
+  // TODO verify values (valid commodities, eth addresses, etc)
+
+  const sc_id = uuidv4()
+  const click_id = uuidv4()
+    const signedData = signSmartContractData({
+        address,
+        commodity,
+        commodity_amount,
+        pk_id,
+        sc_address,
+        sc_id,
+        sc_input_data,
+    }, process.env.PARTNER_PRIVATE_KEY);
+  res.status(200).send({ signedData, click_id })
 })
 
-app.get('/', (res) => {
-    res.send('ALIVE')
+app.get('/', (_, res) => {
+    res.status(200).send('ALIVE')
 })
 
 app.listen(
     process.env.PORT,
-    () => console.log(`Wert API is running on http://localhost:${process.env.PORT}`)
+    () => console.log(`\nWert Partner API is running on http://localhost:${process.env.PORT}`)
 )
