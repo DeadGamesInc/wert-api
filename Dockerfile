@@ -1,4 +1,4 @@
-FROM node:latest as build
+FROM public.ecr.aws/docker/library/node:latest as build
 WORKDIR /app
 
 # Copy in the package file as well as other yarn
