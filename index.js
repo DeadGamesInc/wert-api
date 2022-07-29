@@ -9,6 +9,10 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 app.use('/webhooks', webhooksRouter)
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.post('/requestSignature', (req, res) => {
   // TODO whitelist contract addresses
