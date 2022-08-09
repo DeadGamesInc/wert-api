@@ -12,11 +12,12 @@ router.post('/', (req, res) => {
 })
 
 router.post('/requestSignature', (req, res) => {
-  // TODO whitelist contract addresses
-  // TODO middleware that returns error if api env vars are not set
   const sandbox = req.baseUrl === '/sandbox'
   const { commodity, commodity_amount, address, sc_address, sc_input_data, pk_id } = req.body
-  if(!env.whitelistedContracts.toLowerCase().includes(sc_address.toLowerCase())) res.status(401).send('Invalid sc_address')
+  if(!env.whitelistedContracts.toLowerCase().includes(sc_address.toLowerCase())) {
+    res.status(401).send('Invalid sc_address')
+    return
+  }
 // TODO verify values (valid commodities, eth addresses, etc)
 
   const sc_id = uuidv4()

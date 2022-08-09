@@ -1,12 +1,14 @@
 import express from "express";
 const router = express.Router()
-
+const webhooks = []
 router.get('/', (req, res) => {
-  res.status(200).send('all webhooks')
+  res.status(200).send(webhooks)
 })
 
 router.post('/',(req, res) => {
-  console.log('Webhook: ',req.body)
+  const webhook = req.body
+  webhooks.push(webhook)
+  console.log('Webhook: ',webhook)
   res.sendStatus(200)
 })
 
